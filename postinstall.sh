@@ -1,8 +1,8 @@
 #! /bin/bash
 
-sudo pacman -S kitty
+sudo pacman -S kitty git
 
-sudo pacman -S --needed base-devel
+sudo pacman -S --needed base-devel;
 cd Downloads
 git clone https://aur.archlinux.org/paru.git
 cd paru
@@ -40,12 +40,8 @@ color14 #2BBAC5
 color7  #BBBBBB
 color15 #BBBBBB" > ~/.config/kitty/kitty.conf
 
-sudo systemctl enable fstrim.service
 sudo systemctl enable fstrim.timer
 
-
-sudo systemctl start fstrim.service
-sudo systemctl start fstrim.timer
 
 if lscpu | grep -q 'AuthenticAMD'; then
   sudo pacman -S amd-ucode
